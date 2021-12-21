@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="{{ url_for('static',filename='apexcharts/dist/apexcharts.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/power">Power</a></li>
+    <li><a href="#">History</a></li>
+    <li><a href="/settings">Settings</a></li>
+  </ul>
+</nav>
+
+<div id="chart"></div>
+
+<div class="graph-button-container">
+  <div id="room1" class="graph-buttons">Bathroom</div>
+  <div id="room2" class="graph-buttons">Bedroom</div>
+  <div id="room3" class="graph-buttons">Garage</div>
+  <div id="room4" class="graph-buttons">Kitchen</div>
+  <div id="room5" class="graph-buttons">Living Room</div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="module" src="{{ url_for('static',filename='graph_generation.js') }}" data="{{ data }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+	{% if title %}
+		Smart house - {{title}}
+	{% else %}
+		Smart house
+	{% endif %}
+{% endblock %}
+{% block head %}
+<center>{{head}}</center>
+<hr class="w3-border-grey" style="margin:auto;width:40%">
+{% endblock %}
+{% block content %}
+{{content}}
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}
+	{% if title %}
+		Smart house - {{title}}
+	{% else %}
+		Smart house
+	{% endif %}
+{% endblock %}
+{% block head %}
+{{head}}
+{% endblock %}
+{% block content %}
+<p> User table </p>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Password</th>
+  </tr>
+  	{% for user in users %}
+ 	<tr>	
+ 		<td>{{user.username}}</td>
+ 		<td>{{user.password}}</td>
+ 	</tr>
+ 	{% endfor %}
+</table>
+
+<p> User inputs table </p>
+<table>
+  <tr>
+    <th>MAC</th>
+    <th>Work_start</th>
+    <th>Work_end</th>
+    <th>sleep_start</th>
+    <th>sleep_end</th>
+  </tr>
+ 	{% for userinput in userinputs %}
+ 	<tr>	
+		<td>{{userinput.mac}}</td>
+	    <td>{{userinput.work_start}}</td>
+	    <td>{{userinput.work_end}}</td>
+	    <td>{{userinput.sleep_start}}</td>
+	    <td>{{userinput.sleep_end}}</td>
+ 	</tr>
+ 	{% endfor %}
+</table>
+
+<p> Sensor data table </p>
+<table>
+  <tr>
+    <th>Sensor_id</th>
+    <th>Temperature</th>
+    <th>Humidity</th>
+    <th>Motion</th>
+  </tr>
+  	{% for sensor in sensordata %}
+ 	<tr>	
+ 		<td>{{sensor.sensor_id}}</td>
+ 		<td>{{sensor.temperature}}</td>
+ 		<td>{{sensor.humidity}}</td>
+ 		<td>{{sensor.motion}}</td>
+ 	</tr>
+ 	{% endfor %}
+</table>
+
+
+{% endblock %}

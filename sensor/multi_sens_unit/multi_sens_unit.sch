@@ -1,0 +1,295 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR0101
+U 1 1 6193F226
+P 1850 3150
+F 0 "#PWR0101" H 1850 2900 50  0001 C CNN
+F 1 "GND" H 1855 2977 50  0000 C CNN
+F 2 "" H 1850 3150 50  0001 C CNN
+F 3 "" H 1850 3150 50  0001 C CNN
+	1    1850 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1300 2700 1850 2700
+Connection ~ 1850 2700
+Wire Wire Line
+	1300 1800 1850 1800
+Wire Wire Line
+	1850 1800 1850 2700
+Connection ~ 1300 1800
+Wire Wire Line
+	1850 2700 1850 3150
+Wire Wire Line
+	1300 1700 1300 1800
+Wire Wire Line
+	2550 2800 2550 2750
+Wire Wire Line
+	2400 2800 2550 2800
+$Comp
+L tinkerforge:+5V #PWR0108
+U 1 1 6196460B
+P 2550 2750
+F 0 "#PWR0108" H 2550 2600 50  0001 C CNN
+F 1 "+5V" H 2565 2923 50  0000 C CNN
+F 2 "" H 2550 2750 50  0000 C CNN
+F 3 "" H 2550 2750 50  0000 C CNN
+	1    2550 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 2700 1850 2700
+$Comp
+L ttgo_esp32:TTGO_ESP32_TDISPLAY_V1.1 TTGO1
+U 1 1 619253E3
+P 1500 2850
+F 0 "TTGO1" H 1850 4287 60  0000 C CNN
+F 1 "TTGO_ESP32_TDISPLAY_V1.1" H 1850 4181 60  0000 C CNN
+F 2 "ttgo-tdisplay-kicad:TTGO_ESP32_TDisplay_v1.1" H 1500 2850 60  0001 C CNN
+F 3 "" H 1500 2850 60  0001 C CNN
+	1    1500 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0105
+U 1 1 61976548
+P 2400 1700
+F 0 "#PWR0105" H 2400 1550 50  0001 C CNN
+F 1 "+3.3V" H 2415 1873 50  0000 C CNN
+F 2 "" H 2400 1700 50  0001 C CNN
+F 3 "" H 2400 1700 50  0001 C CNN
+	1    2400 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0107
+U 1 1 61977031
+P 1100 2800
+F 0 "#PWR0107" H 1100 2650 50  0001 C CNN
+F 1 "+3.3V" H 1115 2973 50  0000 C CNN
+F 2 "" H 1100 2800 50  0001 C CNN
+F 3 "" H 1100 2800 50  0001 C CNN
+	1    1100 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 2800 1300 2800
+Text GLabel 2400 2200 2    50   Input ~ 0
+hc-sr501_out
+Text GLabel 2400 2400 2    50   Input ~ 0
+dht11_out
+Text GLabel 2400 2300 2    50   Input ~ 0
+hc-sr501_out
+Text GLabel 3900 2150 0    50   Input ~ 0
+hc-sr501_out
+Text GLabel 3900 2250 0    50   Input ~ 0
+dht11_out
+$Comp
+L power:GND #PWR0109
+U 1 1 61979F1C
+P 3500 2350
+F 0 "#PWR0109" H 3500 2100 50  0001 C CNN
+F 1 "GND" H 3505 2177 50  0000 C CNN
+F 2 "" H 3500 2350 50  0001 C CNN
+F 3 "" H 3500 2350 50  0001 C CNN
+	1    3500 2350
+	0    1    -1   0   
+$EndComp
+$Comp
+L tinkerforge:+5V #PWR0110
+U 1 1 61979F26
+P 3500 2450
+F 0 "#PWR0110" H 3500 2300 50  0001 C CNN
+F 1 "+5V" H 3515 2623 50  0000 C CNN
+F 2 "" H 3500 2450 50  0000 C CNN
+F 3 "" H 3500 2450 50  0000 C CNN
+	1    3500 2450
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR0114
+U 1 1 61979F30
+P 3500 2050
+F 0 "#PWR0114" H 3500 1900 50  0001 C CNN
+F 1 "+3.3V" V 3515 2178 50  0000 L CNN
+F 2 "" H 3500 2050 50  0001 C CNN
+F 3 "" H 3500 2050 50  0001 C CNN
+	1    3500 2050
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	3500 2050 3900 2050
+Wire Wire Line
+	3900 2350 3500 2350
+Wire Wire Line
+	3900 2450 3500 2450
+$Comp
+L Connector:Conn_01x05_Male J1
+U 1 1 61979F3D
+P 4100 2250
+F 0 "J1" H 4208 2631 50  0000 C CNN
+F 1 "Conn_01x05_Male" H 4208 2540 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal" H 4100 2250 50  0001 C CNN
+F 3 "~" H 4100 2250 50  0001 C CNN
+	1    4100 2250
+	-1   0    0    -1  
+$EndComp
+Text GLabel 4900 2600 2    50   Input ~ 0
+hc-sr501_out
+Text GLabel 4900 2700 2    50   Input ~ 0
+dht11_out
+$Comp
+L power:GND #PWR?
+U 1 1 61BA0180
+P 5300 2800
+F 0 "#PWR?" H 5300 2550 50  0001 C CNN
+F 1 "GND" H 5305 2627 50  0000 C CNN
+F 2 "" H 5300 2800 50  0001 C CNN
+F 3 "" H 5300 2800 50  0001 C CNN
+	1    5300 2800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L tinkerforge:+5V #PWR?
+U 1 1 61BA0186
+P 5300 2900
+F 0 "#PWR?" H 5300 2750 50  0001 C CNN
+F 1 "+5V" H 5315 3073 50  0000 C CNN
+F 2 "" H 5300 2900 50  0000 C CNN
+F 3 "" H 5300 2900 50  0000 C CNN
+	1    5300 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 61BA018C
+P 5300 2500
+F 0 "#PWR?" H 5300 2350 50  0001 C CNN
+F 1 "+3.3V" V 5315 2628 50  0000 L CNN
+F 2 "" H 5300 2500 50  0001 C CNN
+F 3 "" H 5300 2500 50  0001 C CNN
+	1    5300 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 2500 4900 2500
+Wire Wire Line
+	4900 2800 5300 2800
+Wire Wire Line
+	4900 2900 5300 2900
+$Comp
+L Connector:Conn_01x05_Male J?
+U 1 1 61BA0195
+P 4700 2700
+F 0 "J?" H 4808 3081 50  0000 C CNN
+F 1 "Conn_01x05_Male" H 4808 2990 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal" H 4700 2700 50  0001 C CNN
+F 3 "~" H 4700 2700 50  0001 C CNN
+	1    4700 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor:DHT11 U?
+U 1 1 61BA2265
+P 6700 1900
+F 0 "U?" H 6456 1946 50  0000 R CNN
+F 1 "DHT11" H 6456 1855 50  0000 R CNN
+F 2 "Sensor:Aosong_DHT11_5.5x12.0_P2.54mm" H 6700 1500 50  0001 C CNN
+F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 6850 2150 50  0001 C CNN
+	1    6700 1900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L tinkerforge:HC-SR501 U?
+U 1 1 61BA35C2
+P 6700 2850
+F 0 "U?" H 6878 2908 60  0000 L CNN
+F 1 "HC-SR501" H 6878 2802 60  0000 L CNN
+F 2 "" H 6700 2850 60  0000 C CNN
+F 3 "" H 6700 2850 60  0000 C CNN
+	1    6700 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BB68FE
+P 6700 2200
+F 0 "#PWR?" H 6700 1950 50  0001 C CNN
+F 1 "GND" H 6705 2027 50  0000 C CNN
+F 2 "" H 6700 2200 50  0001 C CNN
+F 3 "" H 6700 2200 50  0001 C CNN
+	1    6700 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 61BB6EBE
+P 6700 1600
+F 0 "#PWR?" H 6700 1450 50  0001 C CNN
+F 1 "+3.3V" V 6715 1728 50  0000 L CNN
+F 2 "" H 6700 1600 50  0001 C CNN
+F 3 "" H 6700 1600 50  0001 C CNN
+	1    6700 1600
+	1    0    0    -1  
+$EndComp
+Text GLabel 6400 1900 0    50   Input ~ 0
+dht11_out
+Text GLabel 6450 3050 0    50   Input ~ 0
+hc-sr501_out
+$Comp
+L tinkerforge:+5V #PWR?
+U 1 1 61BB7A46
+P 6450 2950
+F 0 "#PWR?" H 6450 2800 50  0001 C CNN
+F 1 "+5V" H 6465 3123 50  0000 C CNN
+F 2 "" H 6450 2950 50  0000 C CNN
+F 3 "" H 6450 2950 50  0000 C CNN
+	1    6450 2950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 61BB8695
+P 6450 3150
+F 0 "#PWR?" H 6450 2900 50  0001 C CNN
+F 1 "GND" H 6455 2977 50  0000 C CNN
+F 2 "" H 6450 3150 50  0001 C CNN
+F 3 "" H 6450 3150 50  0001 C CNN
+	1    6450 3150
+	1    0    0    -1  
+$EndComp
+Wire Notes Line
+	4450 3500 7500 3500
+Wire Notes Line
+	7500 3500 7500 1000
+Wire Notes Line
+	7500 1000 4450 1000
+Wire Notes Line
+	4450 1000 4450 3500
+Wire Notes Line
+	4350 1000 950  1000
+Wire Notes Line
+	950  1000 950  3500
+Wire Notes Line
+	950  3500 4350 3500
+Wire Notes Line
+	4350 3500 4350 1000
+Text Notes 4850 1500 0    50   ~ 0
+Sensor components
+Text Notes 3000 1450 0    50   ~ 0
+Devboard
+$EndSCHEMATC

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}
+	{% if title %}
+		Smart house - {{title}}
+	{% else %}
+		Smart house
+	{% endif %}
+{% endblock %}
+{% block head %}
+<center>{{current_user.username}}'s input</center>
+{% endblock %}
+{% block content %}
+<center>
+<div class="content-section">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4">User input</legend>
+			<div class="form-group">
+				{{ form.mac.label(class="form=form-control-label") }} <br>
+				{% if form.mac.errors %}
+					{{ form.mac(class="form=form-control form-control-sm is-invalid") }}
+					<div class='invalid-feedback'>
+						{% for error in form.mac.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.mac(class="form=form-control form-control-sm") }}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.work_start.label(class="form=form-control-label") }} <br>
+				{% if form.work_start.errors %}
+					{{ form.work_start(class="form=form-control form-control-sm is-invalid") }}
+					<div class='invalid-feedback'>
+						{% for error in form.work_start.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.work_start(class="form=form-control form-control-sm") }}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.work_end.label(class="form=form-control-label") }} <br>
+				{% if form.work_end.errors %}
+					{{ form.work_end(class="form=form-control form-control-sm is-invalid") }}
+					<div class='invalid-feedback'>
+						{% for error in form.work_end.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.work_end(class="form=form-control form-control-sm") }}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.sleep_start.label(class="form=form-control-label") }} <br>
+				{% if form.sleep_start.errors %}
+					{{ form.sleep_start(class="form=form-control form-control-sm is-invalid") }}
+					<div class='invalid-feedback'>
+						{% for error in form.sleep_start.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.sleep_start(class="form=form-control form-control-sm") }}
+				{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.sleep_end.label(class="form=form-control-label") }} <br>
+				{% if form.sleep_end.errors %}
+					{{ form.sleep_end(class="form=form-control form-control-sm is-invalid") }}
+					<div class='invalid-feedback'>
+						{% for error in form.sleep_end.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.sleep_end(class="form=form-control form-control-sm") }}
+				{% endif %}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info")}}
+	</form> 
+</center>
+{% endblock %}

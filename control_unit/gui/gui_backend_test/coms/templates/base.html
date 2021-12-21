@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://wallpapercave.com/wp/wp9982395.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #383838;
+}
+</style>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <! Creating a black navigation bar at the top>
+  <div class="w3-bar w3-black w3-mobile">
+    <a href="{{ url_for('home')}}" class="w3-bar-item w3-button w3-mobile">Home</a>
+    <! Checking if the user is currently authenticated>
+    <! If no, show register/login on nav bar>
+    <! If yes, show profile drop down menu with user input and user profile>
+    {% if current_user.is_authenticated %}
+      <div class="w3-dropdown-hover w3-right">
+      <button class="w3-button w3-mobile">{{current_user.username}}</button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          <a href="{{ url_for('user', usr=current_user.username)}}" class="w3-bar-item w3-button">Profile</a>
+          <a href="{{ url_for('userinput', usr=current_user.username) }}" class="w3-bar-item w3-button">Input</a>
+          <a href="{{ url_for('logout')}}" class="w3-bar-item w3-button">Logout</a>
+        </div>
+    </div>
+    {% else %}
+      
+    <a href="{{ url_for('login')}}" class="w3-bar-item w3-button w3-mobile w3-right">Login</a>
+      <a href="{{ url_for('register')}}" class="w3-bar-item w3-button w3-mobile w3-right">Register</a>
+    {% endif%}
+  </div>
+  <div class="bgimg w3-display-container w3-animate-opacity w3-text-white w3-mobile">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge w3-text-white w3-mobile">
+      AAU
+    </div>
+    <div class="w3-display-middle w3-mobile">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <h1 class="w3-jumbo w3-animate-top">{% block head %}{% endblock%}</h1>
+      <p class="w3-large w3-center">{% block content %}{% endblock %}</p>
+    </div>
+    {% if current_user.is_authenticated %}
+    {% else %}  
+      <div class="w3-display-bottomleft w3-padding-large">
+      Project by <a href="https://github.com/CE-CF/P3-B3-209" target="_blank">P3-B3-209</a>
+      </div>
+    {% endif%}
+  </div>
+
+  </body>
+</html>

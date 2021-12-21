@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+	{% if title %}
+		Smart house - {{title}}
+	{% else %}
+		Smart house
+	{% endif %}
+{% endblock %}
+{% block head %}
+{{head}}
+{% endblock %}
+{% block content %}
+<table>
+  <tr>
+    <th>MAC</th>
+    <th>Work_start</th>
+    <th>Work_end</th>
+    <th>sleep_start</th>
+    <th>sleep_end</th>
+  </tr>
+  <tr>
+    <td>{{user_input.mac}}</td>
+    <td>{{user_input.work_start}}</td>
+    <td>{{user_input.work_end}}</td>
+    <td>{{user_input.sleep_start}}</td>
+    <td>{{user_input.sleep_end}}</td>
+  </tr>
+</table>
+
+{% endblock %}

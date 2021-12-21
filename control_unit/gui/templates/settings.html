@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/power">Power</a></li>
+    <li><a href="/history">History</a></li>
+    <li><a href="#">Settings</a>
+      <div class="user-list">
+
+      </div>
+    </li>
+  </ul>
+</nav>
+
+{% if data.post_response %}
+  <div class="alert">
+   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+   {{ data.post_response }}
+  </div>
+{% endif %}
+
+
+
+{% if data.user_list %}
+  <div class="user-list-container">
+    <button id="user-list-button">Update Existing User</button>
+    <div class="user-list">
+    {% for user in data.user_list %}
+      <a href="/settings?user={{ loop.index }}">{{ user[0] }}</a>
+    {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+<div class="setting-form">
+  <h1>Enter User Info</h1>
+  <form action="{{ url_for('settings') }}" method="post">
+    <div class="form-group">
+      {{ form.mac_addr.label(class="form-label") }}<br>
+      {% if form.mac_addr.errors %}
+				{{ form.mac_addr() }}
+				<div class='invalid-feedback'>
+					{% for error in form.mac_addr.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.mac_addr() }}
+			{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.work_start.label(class="form-label") }}<br>
+      {% if form.work_start.errors %}
+				{{ form.work_start() }}
+				<div class='invalid-feedback'>
+					{% for error in form.work_start.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.work_start() }}
+			{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.work_end.label(class="form-label") }}<br>
+      {% if form.work_end.errors %}
+				{{ form.work_end() }}
+				<div class='invalid-feedback'>
+					{% for error in form.work_end.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.work_end() }}
+			{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.sleep_start.label(class="form-label") }}<br>
+      {% if form.sleep_start.errors %}
+				{{ form.sleep_start() }}
+				<div class='invalid-feedback'>
+					{% for error in form.sleep_start.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.sleep_start() }}
+			{% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.sleep_end.label(class="form-label") }}<br>
+      {% if form.sleep_end.errors %}
+				{{ form.sleep_end() }}
+				<div class='invalid-feedback'>
+					{% for error in form.sleep_end.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+				</div>
+			{% else %}
+				{{ form.sleep_end() }}
+			{% endif %}
+    </div>
+    <div class="form-group">
+			{{ form.submit()}}
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
